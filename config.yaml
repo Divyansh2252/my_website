@@ -17,7 +17,7 @@ params:
       - city: London, UK, NW14SA
         country: United Kingdom
         street: Regent's Park 
-        title: Address
+        title: address
     buttonClear: Clear
     buttonSend: Send message
     email:
