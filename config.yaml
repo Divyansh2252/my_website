@@ -101,12 +101,12 @@ params:
         url: blogs/magna
       - image: pic_04.jpg
         subtitle: Regression
-        title: My Project2
-        url: blogs/ipsum
+        title: Weather
+        url: blogs/deal
       - image: pic05.jpg
         subtitle: Airbnb 
-        title: My Project3
-        url: blogs/ipsum
+        title: Youth surveillance
+        url: blogs/banks
       - image: IMG_3.jpg
         subtitle: My Creation
         title: Vedic Medic - My NGO
