@@ -70,7 +70,7 @@ params:
       - name: AirBnB Analytics
         url: '#'
     button4:
-      - name: Vedic Medic: My NGO
+      - name: Vedic Medic- My NGO
         url: '#'
     links:
       - name: Home
