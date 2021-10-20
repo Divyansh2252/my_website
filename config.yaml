@@ -96,9 +96,9 @@ params:
         title: My CV
         url: blogs/tempus
       - image: pic03.jpg
-        subtitle: Hypothesis Testing
-        title: My Project1 
-        url: projects/project1
+        subtitle: IMDB Rating
+        title: Movies 
+        url: blogs/magna
       - image: pic_04.jpg
         subtitle: Regression
         title: My Project2

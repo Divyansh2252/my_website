@@ -1,0 +1,191 @@
+---
+categories:
+- ""
+- ""
+date: "2017-10-31T22:26:13-05:00"
+description: Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna
+  sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa
+  sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem
+  consequat tincidunt. Vivamus et sagittis tempus.
+draft: false
+image: IMG_2.jpg
+keywords: ""
+slug: magna
+title: Movies
+---
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(rvest) # to scrape wikipedia page
+```
+
+
+
+
+
+# Analysis of movies- IMDB dataset
+
+We will look at a subset sample of movies, taken from the [Kaggle IMDB 5000 movie dataset](https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset)
+
+  
+```{r,load_movies, warning=FALSE, message=FALSE}
+
+movies <- read_csv(here::here("data", "movies.csv"))
+glimpse(movies)
+
+```
+
+Besides the obvious variables of `title`, `genre`, `director`, `year`, and `duration`, the rest of the variables are as follows:
+
+- `gross` : The gross earnings in the US box office, not adjusted for inflation
+- `budget`: The movie's budget 
+- `cast_facebook_likes`: the number of facebook likes cast memebrs received
+- `votes`: the number of people who voted for (or rated) the movie in IMDB 
+- `reviews`: the number of reviews for that movie
+- `rating`: IMDB average rating 
+
+## Use your data import, inspection, and cleaning skills to answer the following:
+
+- Are there any missing values (NAs)? Are all entries distinct or are there duplicate entries?
+```{r}
+skim(movies)
+
+#There are no missing values but there are 54 duplicate entries in the variable "title".
+
+
+```
+- Produce a table with the count of movies by genre, ranked in descending order
+```{r}
+
+movies %>% 
+  group_by(genre) %>% 
+  summarise(number = n()) %>% 
+  arrange(number)
+
+
+movies %>% 
+  group_by(genre) %>% 
+  count(sort=TRUE)
+
+```
+- Produce a table with the average gross earning and budget (`gross` and `budget`) by genre. Calculate a variable `return_on_budget` which shows how many $ did a movie make at the box office for each $ of its budget. Ranked genres by this `return_on_budget` in descending order
+
+```{r}
+
+#movies %>% 
+#  group_by(genre) %>% 
+#  summarise(mean_gross = mean(gross), mean_budget = mean(budget)) %>% 
+#  mutate(return_on_budget = mean_gross/mean_budget)
+
+movies %>% 
+  mutate(return_on_budget = gross/budget) %>% 
+  group_by(genre) %>% 
+  summarise(mean_return_on_budget = mean(return_on_budget)) %>% 
+  arrange(desc(mean_return_on_budget))
+
+
+```
+- Produce a table that shows the top 15 directors who have created the highest gross revenue in the box office. Don't just show the total gross amount, but also the mean, median, and standard deviation per director.
+```{r}
+
+movies %>% 
+  group_by(director) %>% 
+  summarise(gross_revenue = sum(gross), mean_gross = mean(gross), median_gross = median(gross), sd_gross = sd(gross)) %>% 
+  slice_max(order_by = gross_revenue, n = 15)
+
+
+```
+
+- Finally, ratings. Produce a table that describes how ratings are distributed by genre. We don't want just the mean, but also, min, max, median, SD and some kind of a histogram or density graph that visually shows how ratings are distributed. 
+
+```{r}
+movies %>% 
+  group_by(genre) %>%
+  summarise(mean_rating = mean(rating), min_rating = min(rating), max_rating = max(rating),
+            median_rating =  median(rating), sd_rating = sd(rating))
+
+ggplot(movies,aes(x = rating)) + 
+         geom_histogram() + 
+  labs(title = "Ratings Distribution" )
+  
+
+
+
+```
+
+
+## Use `ggplot` to answer the following
+
+  - Examine the relationship between `gross` and `cast_facebook_likes`. Produce a scatterplot and write one sentence discussing whether the number of facebook likes that the cast has received is likely to be a good predictor of how much money a movie will make at the box office. What variable are you going to map to the Y- and X- axes?
+  
+  
+```{r}
+
+ggplot(movies, aes(x = cast_facebook_likes, y = gross)) + 
+  geom_point() + 
+  scale_x_log10(breaks = c(1, 10, 1000, 10000, 100000, 1000000, 10000000, 1000000000, 10000000000 )) +
+  geom_smooth()
+  #scale_x_log10(breaks = c(20000,25000,30000,35000,40000,45000,50000 ))
+
+#In our opinion, there is a weak positive correlation between the two variables. 
+
+```
+
+  - Examine the relationship between `gross` and `budget`. Produce a scatterplot and write one sentence discussing whether budget is likely to be a good predictor of how much money a movie will make at the box office.
+
+```{r, gross_on_budget}
+
+ggplot(movies, aes(x = budget, y = gross)) + 
+  geom_point() + 
+  geom_smooth()
+
+#We noticed that there is a strong positive correlation between the variables budget and gross. Hence, we believe that the budget is a good predictor of how much money a movie will make at the box office. 
+
+```
+  
+  - Examine the relationship between `gross` and `rating`. Produce a scatterplot, faceted by `genre` and discuss whether IMDB ratings are likely to be a good predictor of how much money a movie will make at the box office. Is there anything strange in this dataset?
+
+```{r, gross_on_rating}
+
+#ggplot(movies, aes(x = rating, y = gross)) + 
+ # geom_point() + 
+ # geom_smooth() + 
+ # scale_x_log10(breaks = c(1, 10000, 1000000, 10000000, 1000000000, 10000000000))+
+ # facet_wrap(~ genre, scales = "free")
+
+ggplot(movies, aes(x = gross, y = rating)) + 
+  geom_point() + geom_smooth () +
+  scale_x_log10(breaks = c(1, 10000, 1000000, 10000000, 1000000000, 100000000000)) + 
+  facet_wrap(~genre, scales = "free")
+
+#We noticed that there were differences depending on the genre. For Action, Drama and Horror the data suggests a positive correlation whereas for other genre such as Animation, Fantasy or Documentary we couldn't find a clear relationship.
+
+```
+
+
