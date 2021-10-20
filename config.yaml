@@ -90,7 +90,7 @@ params:
       - image: IMG_4806.jpg
         subtitle: Click Here to know more about me
         title: About Me
-        url: blogs/About Me
+        url: blogs/aliquam
       - image: pic02.jpg
         subtitle: Click here to see my CV
         title: My CV
