@@ -99,17 +99,17 @@ params:
         subtitle: Hypothesis Testing
         title: My Project1 
         url: projects/project1
-      - image: IMG_3.jpg
-        subtitle: Nisl Sed Aliquam
-        title: Ipsum
+      - image: pic_04.jpg
+        subtitle: Hypothesis Testing
+        title: My Project2
         url: blogs/ipsum
       - image: pic05.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Consequat
+        subtitle: Airbnb 
+        title: My Project3
         url: blogs/ipsum
       - image: pic06.jpg
         subtitle: Feugiat Amet Tempus
-        title: Etiam
+        title: Vedic Medic - My NGO
         url: blogs/ipsum
   two:
     buttonText: Get Started
