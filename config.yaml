@@ -1,15 +1,15 @@
-baseURL: "https://divyansh-agrawal.netlify.app/"
+baseURL: https://divyansh-agrawal.netlify.app/
 languageCode: en-us
 title: Portfolio website of Divyansh Agrawal 
-theme: "forty"
+theme: forty
 googleAnalytics: ''
 disqusShortname: ''
 params:
   banner:
     buttonText: Get Started
-    subtitle: |-
-      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
-      AND RELEASED UNDER THE CREATIVE COMMONS.
+#    subtitle: |-
+#      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
+#      AND RELEASED UNDER THE CREATIVE COMMONS.
     title: Hi, my name is Divyansh Agrawal.  
   blog: {}
   contact: 
