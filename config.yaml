@@ -1,4 +1,4 @@
-baseURL: https://divyansh-agrawal.netlify.app/
+baseURL: "https://divyansh-agrawal.netlify.app/"
 languageCode: en-us
 title: Portfolio website of Divyansh Agrawal 
 theme: forty
@@ -17,7 +17,7 @@ params:
       - city: London, UK, NW14SA
         country: United Kingdom
         street: Regent's Park 
-        title: address
+        title: Address
     buttonClear: Clear
     buttonSend: Send message
     email:
