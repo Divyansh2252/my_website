@@ -96,9 +96,9 @@ params:
         title: My CV
         url: blogs/tempus
       - image: pic03.jpg
-        subtitle: Lorem Etiam Nullam
-        title: Magna
-        url: blogs/magna
+        subtitle: gapminder
+        title: My Project1 
+        url: projects/Project1
       - image: pic04.jpg
         subtitle: Nisl Sed Aliquam
         title: Ipsum
