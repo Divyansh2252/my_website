@@ -96,7 +96,7 @@ params:
         title: My CV
         url: blogs/tempus
       - image: pic03.jpg
-        subtitle: gapminder
+        subtitle: Hypothesis Testing
         title: My Project1 
         url: projects/Project1
       - image: pic04.jpg
