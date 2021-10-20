@@ -98,8 +98,8 @@ params:
       - image: pic03.jpg
         subtitle: Hypothesis Testing
         title: My Project1 
-        url: projects/Project1
-      - image: pic04.jpg
+        url: projects/project1
+      - image: IMG_3.jpeg
         subtitle: Nisl Sed Aliquam
         title: Ipsum
         url: blogs/ipsum
