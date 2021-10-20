@@ -17,7 +17,7 @@ params:
       - city: London, UK, NW1 4SA
         country: United Kingdom
         street: Regent's Park 
-       # title: Address
+        title: Addresss
     buttonClear: Clear
     buttonSend: Send message
     email:
