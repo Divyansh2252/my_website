@@ -13,11 +13,11 @@ params:
     title: Hi, my name is Divyansh Agrawal.  
   blog: {}
   contact: 
-   address:     
+    address:     
       - city: London, UK, NW14SA
         country: United Kingdom
         street: Regent's Park 
-        title: Home Address
+        title: Address
     buttonClear: Clear
     buttonSend: Send message
     email:
