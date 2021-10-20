@@ -100,7 +100,7 @@ params:
         title: My Project1 
         url: projects/project1
       - image: pic_04.jpg
-        subtitle: Hypothesis Testing
+        subtitle: Regression
         title: My Project2
         url: blogs/ipsum
       - image: pic05.jpg
