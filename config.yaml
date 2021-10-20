@@ -14,10 +14,10 @@ params:
   blog: {}
   contact: 
    address:     
-      - city: London, UK, NW1 4SA
+      - city: London, UK, NW14SA
         country: United Kingdom
         street: Regent's Park 
-    #   title: Addresss
+        title: Address
     buttonClear: Clear
     buttonSend: Send message
     email:
