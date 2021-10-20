@@ -10,23 +10,23 @@ params:
 #    subtitle: |-
 #      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
 #      AND RELEASED UNDER THE CREATIVE COMMONS.
-    title: Hi, my name is Divyansh Agrawal.  
-  blog: {}
-  contact: 
-   address:     
-      - city: London, UK, NW14SA
-        country: United Kingdom
-        street: Regent's Park 
-        title: Address
-    buttonClear: Clear
-    buttonSend: Send message
-    email:
-      - email: dagrawal.mfa2022@london.edu
-        title: Email
-    enable: yes
-    phone:
-      - phone: (+91) 7800667775 x1234
-        title: Phone
+#    title: Hi, my name is Divyansh Agrawal.  
+#  blog: {}
+#  contact: 
+#   address:     
+#      - city: London, UK, NW14SA
+#        country: United Kingdom
+ #       street: Regent's Park 
+#        title: Address
+#    buttonClear: Clear
+#    buttonSend: Send message
+#    email:
+#      - email: dagrawal.mfa2022@london.edu
+#        title: Email
+#    enable: yes
+#    phone:
+#      - phone: (+91) 7800667775 x1234
+#        title: Phone
   custom_css: []
   custom_js: []
   description: Your description
